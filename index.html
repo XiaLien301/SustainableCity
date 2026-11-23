@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SUSTAINABLE CITY 2030 — SDG 11 永續城市與社區互動式專題">
+<title>SUSTAINABLE CITY 2030 | SDG 11</title>
+<style>
+:root{--bg:#071510;--panel:#10251c;--panel2:#142d22;--green:#a7f36b;--mint:#55d6a0;--text:#edf7ef;--muted:#a9bdb0;--line:rgba(200,255,218,.14);--orange:#ff9d58}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,90%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(7,21,16,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:900;letter-spacing:1.5px}.brand span{color:var(--green)}.links{display:flex;gap:22px;font-size:13px;color:var(--muted)}.links a:hover{color:var(--green)}.menu{display:none;background:none;color:white;border:1px solid var(--line);padding:7px 11px;border-radius:8px}
+.hero{min-height:660px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 45%,rgba(58,139,88,.23),transparent 45%),linear-gradient(120deg,#071510 15%,#0c2118 65%,#102c20)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,21,16,.94),rgba(7,21,16,.2)),repeating-linear-gradient(0deg,transparent 0 59px,rgba(180,255,210,.035) 60px),repeating-linear-gradient(90deg,transparent 0 59px,rgba(180,255,210,.035) 60px);pointer-events:none}.hero-content{position:relative;z-index:2;padding:90px 0;max-width:680px}.eyebrow{color:var(--green);font-size:12px;letter-spacing:3px;font-weight:800}.hero h1{font-size:clamp(46px,8vw,90px);line-height:.98;letter-spacing:-3px;margin:20px 0}.hero h1 span{color:var(--green)}.hero p{color:#c3d5c8;max-width:590px;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--line);cursor:pointer;transition:.2s}.btn.primary{background:var(--green);color:#102015;border-color:var(--green)}.btn:hover{transform:translateY(-2px)}.city-art{position:absolute;right:3%;bottom:0;width:48%;height:72%;z-index:1;opacity:.9}.city-art svg{width:100%;height:100%}
+section{padding:94px 0}.section-head{max-width:720px;margin-bottom:38px}.kicker{color:var(--mint);font-size:12px;letter-spacing:2px;font-weight:900}.section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:10px 0 14px}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,var(--panel),#0d1e16);border:1px solid var(--line);border-radius:18px;padding:24px}.card .num{font-size:12px;color:var(--green);letter-spacing:1.5px;font-weight:900}.card h3{margin:8px 0;font-size:20px}.card p{color:var(--muted);font-size:14px;margin:0}.statband{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:28px}.stat{background:#0d2017;padding:25px}.stat strong{font-size:30px;color:var(--green);display:block}.stat small{color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}.challenge{border-left:3px solid var(--orange)}.solution{border-left:3px solid var(--mint)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:11px;color:var(--mint);margin-bottom:8px}
+.simulator{background:linear-gradient(140deg,#10291e,#0b1b14);border:1px solid rgba(167,243,107,.25);border-radius:24px;padding:clamp(20px,4vw,38px)}.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.control{margin:20px 0}.control label{display:flex;justify-content:space-between;gap:12px;font-weight:700;font-size:14px}.control output{color:var(--green);font-variant-numeric:tabular-nums}.control input{width:100%;accent-color:var(--green);margin-top:12px}.hint{font-size:12px;color:var(--muted)}.scorebox{background:#071710;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:center}.score{font-size:64px;line-height:1;color:var(--green);font-weight:900}.meter{height:10px;border-radius:99px;background:#243a2d;overflow:hidden;margin:18px 0}.meter span{height:100%;display:block;background:linear-gradient(90deg,var(--mint),var(--green));width:50%;transition:width .25s}.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.mini{padding:12px;background:var(--panel);border-radius:12px;font-size:12px;color:var(--muted)}.mini b{display:block;color:var(--text);font-size:18px}
+.actions-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.action{display:flex;gap:14px;align-items:flex-start}.icon{width:42px;height:42px;flex:none;display:grid;place-items:center;background:rgba(167,243,107,.1);border-radius:12px;color:var(--green);font-size:20px}.action p{margin:3px 0 0;color:var(--muted);font-size:13px}
+footer{padding:42px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.sources a{color:var(--green);text-decoration:underline;text-underline-offset:3px}.sources li{margin:9px 0}.note{font-size:12px;color:var(--muted)}.reveal{opacity:0;transform:translateY(18px);transition:.65s}.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){.links{display:none;position:absolute;top:72px;left:0;right:0;background:#0a1b13;padding:18px 5%;flex-direction:column;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.city-art{width:80%;height:43%;right:-12%;opacity:.45}.hero{min-height:620px}.grid{grid-template-columns:1fr 1fr}.sim-grid,.split{grid-template-columns:1fr}.statband{grid-template-columns:1fr}.actions-list{grid-template-columns:1fr}}
+@media(max-width:520px){section{padding:68px 0}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}.hero-content{padding:75px 0}.city-art{width:110%;right:-30%}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="nav">
+ <div class="wrap navin">
+  <a class="brand" href="#home">ECO<span>/</span>2030</a>
+  <nav class="links" id="navlinks"><a href="#about">ABOUT SDG 11</a><a href="#challenges">CHALLENGES</a><a href="#solutions">SOLUTIONS</a><a href="#simulator">SIMULATOR</a><a href="#mission">OUR MISSION</a></nav>
+  <button class="menu" id="menuBtn" aria-label="開啟導覽選單">MENU</button>
+ </div>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="wrap hero-content">
+  <div class="eyebrow">UNITED NATIONS · SUSTAINABLE DEVELOPMENT GOAL 11</div>
+  <h1>BUILD A<br><span>BETTER CITY.</span></h1>
+  <p>城市不只是建築與道路，更是人們生活、工作與成長的地方。讓城市更安全、更包容、更有韌性，也更永續，是我們共同的責任。</p>
+  <div class="actions"><a class="btn primary" href="#about">EXPLORE SDG 11 ↗</a><a class="btn" href="#simulator">TRY CITY SIMULATOR</a></div>
+ </div>
+ <div class="city-art" aria-hidden="true">
+ <svg viewBox="0 0 650 500" preserveAspectRatio="xMidYMax meet">
+ <defs><linearGradient id="b" x2="0" y2="1"><stop stop-color="#a7f36b" stop-opacity=".85"/><stop offset="1" stop-color="#1b8056" stop-opacity=".25"/></linearGradient></defs>
+ <circle cx="460" cy="100" r="55" fill="#a7f36b" opacity=".12"/>
+ <path d="M0 430 L650 430 L650 500 L0 500Z" fill="#163d2a"/>
+ <g fill="#174a32" stroke="#55d6a0" stroke-opacity=".25">
+ <path d="M30 430V250h80v180M125 430V180h95v250M240 430V280h65v150M330 430V130h105v300M455 430V220h70v210M545 430V285h75v145"/>
+ <path d="M145 180l27-42 28 42M350 130l32-48 32 48" fill="#1c593b"/>
+ </g>
+ <g fill="#a7f36b" opacity=".65"><path d="M48 270h12v18H48zm25 0h12v18H73zm25 0h12v18H98zM145 210h12v18h-12zm27 0h12v18h-12zm-27 35h12v18h-12zm27 0h12v18h-12zM355 165h13v18h-13zm28 0h13v18h-13zm28 0h13v18h-13zm-56 35h13v18h-13zm28 0h13v18h-13zM470 250h12v18h-12zm25 0h12v18h-12z"/></g>
+ <g stroke="#a7f36b" stroke-width="3" fill="none" opacity=".8"><path d="M80 430V370m-18 20q18-35 36 0m-18-12q-28-8-28 15m28-15q28-8 28 15M280 430v-62m-18 20q18-35 36 0m-18-12q-28-8-28 15m28-15q28-8 28 15M580 430v-60m-18 20q18-35 36 0"/></g>
+ <path d="M0 450Q150 415 300 450T650 450" stroke="#a7f36b" stroke-width="2" fill="none" opacity=".5"/>
+ </svg></div>
+</section>
+
+<section id="about">
+ <div class="wrap reveal">
+  <div class="section-head"><div class="kicker">01 / ABOUT THE GOAL</div><h2>What is a<br> sustainable city?</h2><p>聯合國永續發展目標第 11 項，致力於打造具包容性、安全、韌性及永續性的城市與人類居住地。重點不只是環境綠化，也包含住宅、交通、公共空間、文化保存與防災能力。</p></div>
+  <div class="grid">
+   <article class="card"><div class="num">INCLUSIVE</div><h3>包容</h3><p>不同年齡、性別、收入與身心狀況的人，都應有平等使用城市資源的機會。</p></article>
+   <article class="card"><div class="num">SAFE</div><h3>安全</h3><p>提供安全住宅、可靠交通、完善公共服務，以及能降低災害風險的生活環境。</p></article>
+   <article class="card"><div class="num">RESILIENT</div><h3>有韌性</h3><p>面對氣候變遷、天然災害與社會衝擊時，城市仍能維持重要服務並逐步復原。</p></article>
+  </div>
+  <div class="statband">
+   <div class="stat"><strong>~70%</strong><small>聯合國預估，2050 年全球近七成人口可能居住於城市。</small></div>
+   <div class="stat"><strong>11.1</strong><small>確保所有人都能取得適足、安全且可負擔的住宅與基本服務。</small></div>
+   <div class="stat"><strong>11.7</strong><small>讓所有人都能使用安全、包容、無障礙的綠地與公共空間。</small></div>
+  </div>
+  <p class="note">註：近 70% 為聯合國對全球城市化趨勢的長期預估，並非目前城市人口比例。</p>
+ </div>
+</section>
+
+<section id="challenges" style="background:#0a1b13">
+ <div class="wrap reveal">
+  <div class="section-head"><div class="kicker">02 / URBAN CHALLENGES</div><h2>Today's cities,<br>tomorrow's challenges.</h2><p>人口集中與快速都市化帶來發展機會，同時也讓住宅、交通、污染及公共空間面臨壓力。</p></div>
+  <div class="split">
+   <article class="card challenge"><span class="tag">CHALLENGE 01</span><h3>Housing affordability</h3><p><b>住宅負擔與居住品質</b><br>房價與租金上升、住宅供給不足及居住環境不佳，可能使弱勢族群更難取得安全且可負擔的住所。</p></article>
+   <article class="card challenge"><span class="tag">CHALLENGE 02</span><h3>Traffic & accessibility</h3><p><b>交通壅塞與可及性</b><br>過度依賴私人運具會增加壅塞與排放；公共運輸不足，也會限制長者、身心障礙者及偏遠社區居民的移動。</p></article>
+   <article class="card challenge"><span class="tag">CHALLENGE 03</span><h3>Air pollution & waste</h3><p><b>空氣污染與垃圾管理</b><br>交通、能源使用及工業活動可能影響空氣品質；若廢棄物分類、回收與處理系統不足，也會增加環境負擔。</p></article>
+   <article class="card challenge"><span class="tag">CHALLENGE 04</span><h3>Lack of public spaces</h3><p><b>公共空間不足</b><br>綠地、公園與安全的人行空間不足，會影響居民休閒、健康、社區交流及城市面對高溫的能力。</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="solutions">
+ <div class="wrap reveal">
+  <div class="section-head"><div class="kicker">03 / SMART SOLUTIONS</div><h2>Design a city<br>that works for everyone.</h2><p>永續城市不是單一科技就能完成，而是需要政策、基礎建設、社區參與與日常行動一起推進。</p></div>
+  <div class="grid">
+   <article class="card solution"><div class="num">01 · GREEN MOBILITY</div><h3>綠色交通</h3><p>改善步行與自行車環境、提升大眾運輸便利性，並讓轉乘與無障礙設計更友善。</p></article>
+   <article class="card solution"><div class="num">02 · GREEN BUILDINGS</div><h3>綠色建築</h3><p>採用節能設計、自然採光、隔熱與高效率設備，降低建築使用期間的能源需求。</p></article>
+   <article class="card solution"><div class="num">03 · SMART WASTE</div><h3>智慧廢棄物管理</h3><p>透過分類回收、資源再利用與智慧化收運，減少送往掩埋或焚化處理的廢棄物。</p></article>
+   <article class="card solution"><div class="num">04 · URBAN GREEN</div><h3>城市綠地</h3><p>增加公園、行道樹與綠屋頂，提供居民休憩空間，也有助於調節局部熱環境。</p></article>
+   <article class="card solution"><div class="num">05 · RESILIENT CITY</div><h3>防災與韌性</h3><p>強化排水、避難設施、預警系統與關鍵基礎建設，提升城市面對災害的準備能力。</p></article>
+   <article class="card solution"><div class="num">06 · INCLUSIVE PLANNING</div><h3>包容式規劃</h3><p>讓居民參與都市規劃，將兒童、長者、身心障礙者與弱勢族群的需求納入設計。</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="simulator" style="background:#0a1b13">
+ <div class="wrap reveal">
+  <div class="section-head"><div class="kicker">04 / INTERACTIVE EXPERIENCE</div><h2>Build your<br>sustainable city.</h2><p>你是城市規劃師。調整下方四項建設投入，看看不同決策如何影響這座假想城市的永續表現。</p></div>
+  <div class="simulator">
+   <div class="sim-grid">
+    <div>
+     <div class="control"><label for="transport">公共運輸建設 <output id="transportVal">50%</output></label><input id="transport" type="range" min="0" max="100" value="50"><div class="hint">改善大眾運輸與步行、自行車環境</div></div>
+     <div class="control"><label for="green">城市綠地 <output id="greenVal">50%</output></label><input id="green" type="range" min="0" max="100" value="50"><div class="hint">增加公園、樹蔭與開放空間</div></div>
+     <div class="control"><label for="energy">節能與綠建築 <output id="energyVal">50%</output></label><input id="energy" type="range" min="0" max="100" value="50"><div class="hint">提升建築能源效率與再生能源使用</div></div>
+     <div class="control"><label for="waste">資源回收管理 <output id="wasteVal">50%</output></label><input id="waste" type="range" min="0" max="100" value="50"><div class="hint">強化分類、回收與循環利用</div></div>
+     <button class="btn" id="resetBtn" type="button">RESET CITY ↺</button>
+    </div>
+    <div class="scorebox">
+     <div class="kicker">SIMULATED SUSTAINABILITY SCORE</div><div class="score" id="score">50</div><div class="hint">OUT OF 100 · 教學用示意分數</div>
+     <div class="meter"><span id="meterFill"></span></div>
+     <h3 id="scoreTitle">A city in progress</h3><p class="hint" id="scoreText">持續改善城市建設，讓更多居民受益。</p>
+     <div class="breakdown">
+      <div class="mini">交通建設<b id="transportMini">50</b></div><div class="mini">綠地建設<b id="greenMini">50</b></div>
+      <div class="mini">節能建設<b id="energyMini">50</b></div><div class="mini">回收管理<b id="wasteMini">50</b></div>
+     </div>
+    </div>
+   </div>
+   <p class="note">重要說明：本模擬器使用自行設定的等權重公式，僅用於展示 JavaScript 即時互動與城市規劃概念，不是聯合國官方指標、真實城市評級或科學預測。</p>
+  </div>
+ </div>
+</section>
+
+<section id="mission">
+ <div class="wrap reveal">
+  <div class="section-head"><div class="kicker">05 / OUR MISSION</div><h2>A sustainable city<br>starts with us.</h2><p>打造永續城市不只是政府或工程師的責任。每個人的選擇，都可能成為城市改變的一部分。</p></div>
+  <div class="actions-list">
+   <div class="action"><div class="icon">🚲</div><div><b>選擇低碳交通</b><p>短程步行或騎自行車，適當使用大眾運輸。</p></div></div>
+   <div class="action"><div class="icon">♻️</div><div><b>減少一次性用品</b><p>自備環保袋與水瓶，做好垃圾分類與回收。</p></div></div>
+   <div class="action"><div class="icon">🌳</div><div><b>珍惜公共空間</b><p>愛護公園、行道樹與公共設施，尊重每個人的使用權。</p></div></div>
+   <div class="action"><div class="icon">💡</div><div><b>節約能源</b><p>離開時關閉不必要的燈具與電器，支持節能選擇。</p></div></div>
+  </div>
+  <div class="card" style="margin-top:28px;border-color:rgba(167,243,107,.35);background:linear-gradient(120deg,#173b27,#10251c)">
+   <div class="kicker">THE FUTURE IS A CHOICE</div><h3 style="font-size:clamp(24px,4vw,38px);margin:8px 0">Better cities. Better lives.</h3><p style="color:#c3d5c8">真正永續的城市，不只是看起來更綠，而是讓每個人都能安全、有尊嚴且有機會地生活。</p>
+  </div>
+ </div>
+</section>
+</main>
+<footer><div class="wrap">
+ <b style="color:var(--text)">ECO/2030 · SUSTAINABLE CITY</b>
+ <p>網頁程式設計主題報告｜聯合國永續發展目標 SDG 11：永續城市與社區</p>
+ <div class="sources"><b style="color:var(--text)">參考資料 SOURCES</b><ol>
+  <li><a href="https://sdgs.un.org/goals/goal11" target="_blank" rel="noopener">United Nations — Goal 11: Sustainable Cities and Communities</a></li>
+  <li><a href="https://unstats.un.org/sdgs/metadata/?Goal=11" target="_blank" rel="noopener">UN Statistics Division — SDG 11 Indicators & Metadata</a></li>
+  <li><a href="https://www.un.org/en/common-agenda/sustainable-development-goals" target="_blank" rel="noopener">United Nations — Sustainable Development Goals</a></li>
+ </ol></div>
+ <p class="note">本網站為教育用途之學生專題示範。模擬器分數為自訂教學模型；統計敘述以所列聯合國資料為準。</p>
+</div></footer>
+<script>
+const ids=["transport","green","energy","waste"];
+const weights={transport:.25,green:.25,energy:.25,waste:.25};
+function updateCity(){
+ let total=0;
+ ids.forEach(id=>{
+  const value=Number(document.getElementById(id).value);
+  document.getElementById(id+"Val").textContent=value+"%";
+  document.getElementById(id+"Mini").textContent=value;
+  total+=value*weights[id];
+ });
+ const score=Math.round(total);
+ document.getElementById("score").textContent=score;
+ document.getElementById("meterFill").style.width=score+"%";
+ let title="A city in progress",text="持續改善城市建設，讓更多居民受益。";
+ if(score>=80){title="A greener future";text="各項建設投入程度較高，但仍須確保資源分配公平且符合居民需求。";}
+ else if(score>=60){title="Growing sustainably";text="城市已有一定基礎，可以繼續補強較弱的建設面向。";}
+ else if(score<35){title="A city needs support";text="目前投入程度偏低。可以優先改善最需要的公共服務與環境設施。";}
+ document.getElementById("scoreTitle").textContent=title;
+ document.getElementById("scoreText").textContent=text;
+}
+ids.forEach(id=>document.getElementById(id).addEventListener("input",updateCity));
+document.getElementById("resetBtn").addEventListener("click",()=>{ids.forEach(id=>document.getElementById(id).value=50);updateCity();});
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("navlinks").classList.toggle("open"));
+document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navlinks").classList.remove("open")));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show");observer.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+updateCity();
+</script>
+</body>
+</html>
